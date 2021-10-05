@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AgendaFotografica</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo" />
+    <string name="agenda_de_citas">Agenda de citas fotograficas</string>
 </resources>

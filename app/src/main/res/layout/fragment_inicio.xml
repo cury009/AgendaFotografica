@@ -22,9 +22,9 @@
     <TextView
         android:id="@id/textNickName"
         android:layout_width="match_parent"
-        android:layout_height="179dp"
+        android:layout_height="213dp"
 
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="190dp"
         android:fontFamily="@font/bowlby_one"
         android:text="@string/agenda_de_citas"
         android:textAlignment="center"
@@ -56,13 +56,13 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
-                android:layout_width="241dp"
+                android:layout_width="179dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="236dp"
+                    android:layout_width="171dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
@@ -70,8 +70,8 @@
                     android:src="@drawable/calendar" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="42dp"
+                    android:layout_width="167dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/baumans"
@@ -99,13 +99,13 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
-                android:layout_width="241dp"
+                android:layout_width="170dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="236dp"
+                    android:layout_width="166dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
@@ -142,22 +142,22 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
-                android:layout_width="241dp"
-                android:layout_height="match_parent"
+                android:layout_width="177dp"
+                android:layout_height="116dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="236dp"
-                    android:layout_height="42dp"
+                    android:layout_width="170dp"
+                    android:layout_height="52dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:contentDescription="@string/todo"
                     android:src="@drawable/facebook" />
 
                 <TextView
-                    android:layout_width="179dp"
-                    android:layout_height="106dp"
+                    android:layout_width="168dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/baumans"
@@ -185,13 +185,13 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
-                android:layout_width="241dp"
-                android:layout_height="match_parent"
+                android:layout_width="170dp"
+                android:layout_height="126dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="236dp"
+                    android:layout_width="168dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
@@ -200,7 +200,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="42dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/baumans"

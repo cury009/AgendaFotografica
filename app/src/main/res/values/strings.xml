@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="todo" />
     <string name="agenda_de_citas">Agenda de citas fotograficas</string>
+    <string name="title_activity_contenedor_info">ContenedorInfoActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

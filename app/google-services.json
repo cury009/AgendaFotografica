@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "374992452102",
+    "project_id": "agendafotografica-9f41f",
+    "storage_bucket": "agendafotografica-9f41f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374992452102:android:358804d094dd447206e187",
+        "android_client_info": {
+          "package_name": "com.example.agendafotografica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374992452102-uaci1noo3ekr41s4b7gupj9e2j7eci7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agendafotografica",
+            "certificate_hash": "1b76c30f111e415cdae951bf44eb0fa43cbae254"
+          }
+        },
+        {
+          "client_id": "374992452102-jq15gobr7vfvr1rrnbhf5d59ch8u6tsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdz2VJS7f7sJEowrPza9mrIB0ub3IHUHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374992452102-jq15gobr7vfvr1rrnbhf5d59ch8u6tsn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

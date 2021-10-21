@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaFotografica">
         <activity
+            android:name=".actividades.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login" />
+        <activity
             android:name=".actividades.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -20,7 +27,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

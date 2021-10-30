@@ -1,17 +1,21 @@
 package com.example.agendafotografica;
 
+import android.content.Intent;
 import android.net.Uri;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.agendafotografica.actividades.LoginActivity;
 import com.example.agendafotografica.fragments.InicioFragment;
 import com.example.agendafotografica.interfaces.IComunicaFragments;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements IComunicaFragments,InicioFragment.OnFragmentInteractionListener {
 
     Fragment fragmentInicio;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,13 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
     @Override
     public void iniciarCerrarSesion() {
 
+        //Cerrar session con Firebase
+        mAuth.signOut();
+        //Abrir MainActivity
+        Intent LoginActivity = new Intent(getApplicationContext(),
+                MainActivity.class);
+        startActivity(LoginActivity);
+        MainActivity.this.finish();
         Toast.makeText(getApplicationContext(), "Iniciar Cerrar Sesion desde el activity", Toast.LENGTH_SHORT).show();
     }
 }

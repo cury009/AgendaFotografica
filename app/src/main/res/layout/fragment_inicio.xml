@@ -29,14 +29,14 @@
         android:text="@string/agenda_de_citas"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="42sp"
+        android:textSize="38sp"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <GridLayout
         android:id="@+id/idGrid"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:layout_marginTop="440dp"
+        android:layout_height="355dp"
+        android:layout_marginTop="350dp"
         android:columnCount="2"
         android:padding="4dp"
         android:rowCount="2">

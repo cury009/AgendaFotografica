@@ -57,6 +57,6 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
                 MainActivity.class);
         startActivity(LoginActivity);
         MainActivity.this.finish();
-        Toast.makeText(getApplicationContext(), "Iniciar Cerrar Sesion desde el activity", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), " Cerrar Sesion desde el activity", Toast.LENGTH_SHORT).show();
     }
 }

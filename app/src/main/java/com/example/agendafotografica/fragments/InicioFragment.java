@@ -117,6 +117,7 @@ public class InicioFragment extends Fragment {
             @Override
             public void onClick(View v)  {
 
+
                 interfaceComunicaFragments.iniciarCerrarSesion();
                 //Toast.makeText(getContext(), "Iniciar Cerrar Sesion desde el fragment", Toast.LENGTH_SHORT).show();
 

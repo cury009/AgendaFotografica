@@ -9,5 +9,5 @@ public interface IComunicaFragments {
     public void iniciarCalendario();
     public void iniciarInfo();
     public void iniciarFacebook();
-    public void iniciarCerrarSesion();
+    public void CerrarSesion();
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.agendafotografica.R;
 import com.example.agendafotografica.interfaces.IComunicaFragments;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +33,10 @@ public class InicioFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private FirebaseAuth mAuth;
 
     View vista;
+
     Activity actividad;
     CardView cardCalendario, cardInfo, cardFacebook, cardCerrarSesion;
     IComunicaFragments interfaceComunicaFragments;
@@ -118,8 +121,9 @@ public class InicioFragment extends Fragment {
             public void onClick(View v)  {
 
 
-                interfaceComunicaFragments.iniciarCerrarSesion();
-                //Toast.makeText(getContext(), "Iniciar Cerrar Sesion desde el fragment", Toast.LENGTH_SHORT).show();
+                interfaceComunicaFragments.CerrarSesion();
+                //Toast.makeText(getContext(), "Cerrar Sesion desde el fragment", Toast.LENGTH_SHORT).show();
+
 
             }
         });

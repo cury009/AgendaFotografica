@@ -46,9 +46,12 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
     public void iniciarFacebook() {
 
         Toast.makeText(getApplicationContext(), "Iniciar Facebook desde el activity", Toast.LENGTH_SHORT).show();
+        Intent facebook = new Intent(Intent.ACTION_VIEW, Uri.parse("https://de-de.facebook.com/Raul-Salva-Jimeno-Fotografia-101462022196478/?ref=page_internal"));
+        startActivity(facebook);
+
     }
     @Override
-    public void iniciarCerrarSesion() {
+    public void CerrarSesion() {
 
         //Cerrar session con Firebase
         mAuth.signOut();

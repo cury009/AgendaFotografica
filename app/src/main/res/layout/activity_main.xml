@@ -1,11 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/contenedorFragments"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:background="@drawable/fondo">
 
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/avatarImage"
+        android:layout_width="164dp"
+        android:layout_height="209dp"
+        android:layout_marginStart="120dp"
+
+        android:contentDescription="@string/todo"
+        android:src="@drawable/calendariowhite"
+        android:textAlignment="center"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@id/textNickName"
+        android:layout_width="match_parent"
+        android:layout_height="213dp"
+
+        android:layout_marginTop="190dp"
+        android:fontFamily="@font/bowlby_one"
+        android:paddingTop="50dp"
+        android:text="@string/agenda_de_citas"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="38sp"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+    <!--<GridView
+        android:id="@+id/idGrid"
+        android:layout_width="match_parent"
+        android:layout_height="269dp"
+        android:layout_marginTop="400dp"
+        app:columnCount="2"
+        app:rowCount="2">-->
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCalendar"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+        android:onClick="calendario"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <LinearLayout
+            android:layout_width="179dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="171dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/calendar" />
+
+            <TextView
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baumans"
+                android:text="Reserva tus fotos"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardInfo"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+        android:onClick="info"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="168dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/informacion" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baumans"
+                android:text="Info"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFacebook"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+        android:onClick="facebook"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <LinearLayout
+            android:layout_width="177dp"
+            android:layout_height="116dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/facebook" />
+
+            <TextView
+                android:layout_width="168dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baumans"
+                android:text="Echa un vistazo  a mis fotos"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCloseSession"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+        android:onClick="cerrarSesion"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="126dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="168dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/power" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baumans"
+                android:text="Cerrar Sesion"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <!--</GridView>-->
+
+
+
+
+</RelativeLayout>

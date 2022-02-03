@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.agendafotografica.MainActivity;
 import com.example.agendafotografica.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -118,6 +117,9 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){ //si no es null el usuario ya esta logueado
             //mover al usuario al dashboard
+            user.getEmail();
+
+            
             Intent dashboardActivity = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(dashboardActivity);
         }

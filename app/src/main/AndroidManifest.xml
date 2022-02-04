@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaFotografica.NoActionBar">
         <activity
+            android:name=".actividades.BorrarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".actividades.InsertarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".actividades.MostrarActivity"
+            android:exported="true" />
+        <activity
             android:name=".actividades.InfoActivity"
             android:exported="true" />
         <activity

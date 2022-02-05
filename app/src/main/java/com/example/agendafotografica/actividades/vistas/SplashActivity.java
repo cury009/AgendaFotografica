@@ -1,4 +1,4 @@
-package com.example.agendafotografica.actividades;
+package com.example.agendafotografica.actividades.vistas;
 
 import android.content.Intent;
 import android.os.Handler;

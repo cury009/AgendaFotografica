@@ -1,4 +1,4 @@
-package com.example.agendafotografica.actividades;
+package com.example.agendafotografica.actividades.vistas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

@@ -12,25 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaFotografica.NoActionBar">
         <activity
-            android:name=".actividades.BorrarActivity"
+            android:name=".actividades.vistas.BorrarActivity"
             android:exported="true" />
         <activity
-            android:name=".actividades.InsertarActivity"
+            android:name=".actividades.vistas.InsertarActivity"
             android:exported="true" />
         <activity
-            android:name=".actividades.MostrarActivity"
+            android:name=".actividades.vistas.MostrarActivity"
             android:exported="true" />
         <activity
-            android:name=".actividades.InfoActivity"
+            android:name=".actividades.vistas.InfoActivity"
             android:exported="true" />
         <activity
-            android:name=".actividades.CalendarioActivity"
+            android:name=".actividades.vistas.CalendarioActivity"
             android:exported="true" />
         <activity
-            android:name=".actividades.LoginActivity"
+            android:name=".actividades.vistas.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".actividades.SplashActivity"
+            android:name=".actividades.vistas.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".actividades.MainActivity"
+            android:name=".actividades.vistas.MainActivity"
             android:exported="true" />
     </application>
 

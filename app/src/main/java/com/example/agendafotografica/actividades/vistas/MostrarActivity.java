@@ -1,4 +1,4 @@
-package com.example.agendafotografica.actividades;
+package com.example.agendafotografica.actividades.vistas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.agendafotografica.R;
 
-public class InsertarActivity extends AppCompatActivity {
+public class MostrarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insertar);
+        setContentView(R.layout.activity_mostrar);
     }
 }

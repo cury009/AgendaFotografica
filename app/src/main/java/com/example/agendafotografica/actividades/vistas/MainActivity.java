@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.agendafotografica.R;
+import com.google.firebase.auth.FirebaseAuth;
 //import com.example.agendafotografica.actividades.vistas.LoginActivity;
 
 
@@ -24,22 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        /*facebook = findViewById(R.id.cardFacebook);
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("click","se mete aqui");
-                //Uri facebook= Uri.parse(url);
-                //Intent i = new Intent(Intent.ACTION_VIEW,facebook);
-                //startActivity(i);
-                Log.d("click2", "llega aqui?");
-
-            }
-        });*/
-
-    }
+        setContentView(R.layout.activity_main);    }
 
 
     //método boton calendario
@@ -65,10 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //método botón cerrarSesion
+
     public void cerrarSesion(View view) {
         Toast.makeText(getApplicationContext(), "Cerrar Sesion Calendario", Toast.LENGTH_SHORT).show();
-        //Intent calendario = new Intent(this, CalendarioActivity.class);
-        //startActivity(cerrarSesion);
+        FirebaseAuth.getInstance().signOut();
+        Intent cerrarSesion = new Intent(this, LoginActivity.class);
+        startActivity(cerrarSesion);
 
     }
 

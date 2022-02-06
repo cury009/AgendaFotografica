@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,32 +11,179 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:text="BIENVENIDO"
-        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/baumans"
+        android:foregroundGravity="center_horizontal"
+        android:text=" BIENVENIDO A AGENDA FOTOGRAFICA"
+        android:textAlignment="center"
         android:textColor="#000"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="#fff"
-        android:drawableStart="@drawable/ic_google"
-        android:paddingStart="40dp"
-        android:paddingEnd="40dp"
-        android:text="Inicia sesión con Google"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardUsuario"
+        android:layout_width="350dp"
+        android:layout_height="71dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/user" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="email:"
+            android:inputType="textPersonName"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPassword"
+        android:layout_width="350dp"
+        android:layout_height="71dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/password" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Contraseña:"
+            android:inputType="textPersonName"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAcceso"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="400dp"
+        android:foreground="?selectableItemBackground"
+        android:onClick="loguearse"
+        app:cardBackgroundColor="#78E486"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        tools:ignore="OnClick">
+
+        <TextView
+            android:id="@+id/Acceso"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:fontFamily="@font/baumans"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="ACCESO"
+            android:textSize="24sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardRegistrar"
+        android:layout_width="353dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="500dp"
+        android:foreground="?selectableItemBackground"
+        android:onClick="registrar"
+        app:cardBackgroundColor="#F6D674"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        tools:ignore="OnClick,TouchTargetSizeCheck">
+
+        <TextView
+            android:id="@+id/Registrar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/baumans"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="REGISTRAR NUEVO USUARIO"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!--
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLoginGoogle"
+        android:layout_width="135dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="660dp"
+        android:foreground="?selectableItemBackground"
+        android:onClick="loginGoogle"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        tools:ignore="OnClick">
+
+        <LinearLayout
+            android:layout_width="179dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="133dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_google" />
+
+            <TextView
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baumans"
+                android:text="login con google"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    -->
+
+</RelativeLayout>

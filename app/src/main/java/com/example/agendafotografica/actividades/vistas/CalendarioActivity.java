@@ -59,6 +59,7 @@ public class CalendarioActivity extends AppCompatActivity {
     //método botón fijar evento
     public void insertar(View view) {
         Toast.makeText(getApplicationContext(), "Iniciar Pantalla Insertar", Toast.LENGTH_SHORT).show();
+
         String fecha = String.valueOf(dateValueTextView.getText()); //guardar la fecha en una variable String
         Intent insertar = new Intent(this, InsertarActivity.class); //dirige a la pantalla InsertarActivity
 

@@ -1,0 +1,126 @@
+package com.example.agendafotografica.actividades.vistas;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.agendafotografica.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class RegistrarActivity extends AppCompatActivity {
+
+    private EditText edtNombre = null;
+    private EditText edtApellidos = null;
+    private EditText edtTelefono = null;
+    private EditText edtCorreo = null;
+    private EditText edtPass = null;
+    private EditText edtDescripcion = null;
+
+    public String correo;
+    public String password;
+    public String nombre;
+    public String apellidos;
+    public int phone;
+
+    //Variable para gestionar FirebaseAuth
+    private FirebaseAuth mAuth;
+    //Agregar cliente de inicio de sesión de Google
+    private GoogleSignInClient mGoogleSignInClient;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registrar);
+
+        //emparejamos java con el xml
+        edtNombre = (EditText) findViewById(R.id.edtName);
+        edtApellidos = (EditText) findViewById(R.id.edtSurname);
+        edtTelefono = (EditText) findViewById(R.id.edtTelefono);
+        edtCorreo = (EditText) findViewById(R.id.edtCorreo);
+        edtPass = (EditText) findViewById(R.id.edtPass);
+        edtDescripcion = (EditText) findViewById(R.id.edtDescripcion);
+
+
+        // Configurar Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("374992452102-jq15gobr7vfvr1rrnbhf5d59ch8u6tsn.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+        // Crear un GoogleSignInClient con las opciones especificadas por gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        //referencia al boton signIN y asignar el evento onClick
+        //btnSignIn = findViewById(R.id.btnSignIn);
+
+
+        // Inicializar Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        //updateUI(currentUser);
+    }
+
+    //creamos método registrarUsuario
+    //metodo registrar Usuario
+    public void registrarUsuario (View view) {
+        String email = String.valueOf(edtCorreo.getText()).trim();
+        String password = String.valueOf(edtPass.getText());
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.i("firebasedb", "createUserWithEmail:success");
+                            Toast.makeText(RegistrarActivity.this, "Usuario creado con exito", Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            // updateUI(user);
+                            Intent intent = new Intent(RegistrarActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.i("firebasedb", "fallo en crear el usuario", task.getException());
+                            Toast.makeText(RegistrarActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            //  updateUI(null);
+                        }
+                    }
+                });
+        //guardo los edt en strings y int para poderlo enviar a mysql.
+        correo = String.valueOf(edtCorreo.getText().toString());
+        password = String.valueOf(edtPass.getText().toString());
+        nombre = String.valueOf(edtNombre.getText().toString());
+        apellidos = String.valueOf(edtApellidos.getText().toString());
+        phone = Integer.valueOf(edtTelefono.getText().toString());
+        //prueba de que se guardan
+        System.out.println("correo: " + correo);
+        System.out.println("password: " + password);
+        System.out.println("nombre: " + nombre);
+        System.out.println("apellidos: " + apellidos);
+        System.out.println("phone: " + phone);
+
+    }
+
+    //método volver
+    public void volverbtn(View view) {
+        Intent volver = new Intent(this, LoginActivity.class);
+        startActivity(volver);
+    }
+
+}

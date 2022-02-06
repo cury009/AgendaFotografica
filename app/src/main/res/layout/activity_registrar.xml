@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/baumans"
-        android:text="Formulario Insertar"
+        android:text="Formulario Registrar"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="34sp"
@@ -20,30 +19,87 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/fechaIncorporada"
-        android:layout_width="348dp"
-        android:layout_height="35dp"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCorreo"
+        android:layout_width="345dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/baumans"
-        android:text="Dia Seleccionado:"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/TituloInsertar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/TituloInsertar"
-        app:layout_constraintTop_toBottomOf="@+id/TituloInsertar" />
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <TextView
+            android:layout_width="146dp"
+            android:layout_height="35dp"
+
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/baumans"
+            android:text="Correo"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edtCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
 
-    <!--
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPass"
+        android:layout_width="345dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <TextView
+            android:layout_width="146dp"
+            android:layout_height="35dp"
+
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/baumans"
+            android:text="Contraseña"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edtPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardNombre"
         android:layout_width="345dp"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="260dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -81,7 +137,7 @@
         android:layout_width="345dp"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="340dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -118,7 +174,7 @@
         android:layout_width="345dp"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="420dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -151,133 +207,20 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardCorreo"
-        android:layout_width="345dp"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="330dp"
+        android:id="@+id/cardRegistrarUsuario"
+        android:layout_width="163dp"
+        android:layout_height="101dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="500dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
-
-        app:cardCornerRadius="8dp"
-        app:cardElevation="6dp"
-        app:layout_columnWeight="1"
-        app:layout_rowWeight="1">
-
-        <TextView
-            android:layout_width="146dp"
-            android:layout_height="35dp"
-
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/baumans"
-            android:text="Correo"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edtCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-
-    </androidx.cardview.widget.CardView>
-    -->
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardHora"
-        android:layout_width="342dp"
-        android:layout_height="57dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="16dp"
-        android:foreground="?selectableItemBackground"
-
-        app:cardCornerRadius="8dp"
-        app:cardElevation="6dp"
-        app:layout_columnWeight="1"
-        app:layout_rowWeight="1">
-
-        <TextView
-            android:layout_width="146dp"
-            android:layout_height="35dp"
-
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/baumans"
-            android:text="Selecciona Hora"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/spinnerHora"
-            android:layout_width="186dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="10dp"
-
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardDescripcion"
-        android:layout_width="342dp"
-        android:layout_height="106dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="240dp"
-        android:layout_marginBottom="16dp"
-        android:foreground="?selectableItemBackground"
-
-        app:cardCornerRadius="8dp"
-        app:cardElevation="6dp"
-        app:layout_columnWeight="1"
-        app:layout_rowWeight="1">
-
-        <TextView
-            android:layout_width="146dp"
-            android:layout_height="35dp"
-
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/baumans"
-            android:text="Descripcion"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edtDescripcion"
-            android:layout_width="332dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="50dp"
-            android:ems="10"
-            android:gravity="start"
-            android:inputType="textMultiLine"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardInsertarbtn"
-        android:layout_width="174dp"
-        android:layout_height="109dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginBottom="16dp"
-        android:foreground="?selectableItemBackground"
-        android:onClick="insertarbtn"
+        android:onClick="registrarUsuario"
         app:cardBackgroundColor="#BDF37E"
         app:cardCornerRadius="8dp"
         app:cardElevation="6dp"
         app:layout_columnWeight="1"
-        app:layout_rowWeight="1">
+        app:layout_rowWeight="1"
+        tools:ignore="OnClick">
 
         <LinearLayout
             android:layout_width="179dp"
@@ -299,7 +242,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/baumans"
-                android:text="INSERTAR EVENTO"
+                android:text="REGISTRAR USUARIO"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
@@ -309,10 +252,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardVolverbtn"
-        android:layout_width="177dp"
-        android:layout_height="109dp"
+        android:layout_width="172dp"
+        android:layout_height="101dp"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="500dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
         android:onClick="volverbtn"
@@ -323,7 +266,7 @@
         app:layout_rowWeight="1">
 
         <LinearLayout
-            android:layout_width="177dp"
+            android:layout_width="179dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
             android:orientation="vertical">

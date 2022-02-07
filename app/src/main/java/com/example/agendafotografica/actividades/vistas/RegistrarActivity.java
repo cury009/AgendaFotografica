@@ -1,6 +1,7 @@
 package com.example.agendafotografica.actividades.vistas;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.agendafotografica.R;
+import com.example.agendafotografica.actividades.clases.Evento;
+import com.example.agendafotografica.actividades.clases.Usuario;
+import com.example.agendafotografica.actividades.controladores.UsuarioController;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -89,19 +93,28 @@ public class RegistrarActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.i("firebasedb", "createUserWithEmail:success");
-                            Toast.makeText(RegistrarActivity.this, "Usuario creado con exito", Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(RegistrarActivity.this, "Usuario creado con exito en Firebase", Toast.LENGTH_SHORT).show();
+
                             FirebaseUser user = mAuth.getCurrentUser();
                             // updateUI(user);
                             Intent intent = new Intent(RegistrarActivity.this, MainActivity.class);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.i("firebasedb", "fallo en crear el usuario", task.getException());
+                            Log.i("firebasedb", "fallo en crear el usuario en Firebase", task.getException());
                             Toast.makeText(RegistrarActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             //  updateUI(null);
                         }
                     }
                 });
+        guardarVariablesenSql();
+
+
+    }
+
+    //metodo para guardar variables en una clase
+    public void guardarVariablesenSql() {
         //guardo los edt en strings y int para poderlo enviar a mysql.
         correo = String.valueOf(edtCorreo.getText().toString());
         password = String.valueOf(edtPass.getText().toString());
@@ -115,7 +128,19 @@ public class RegistrarActivity extends AppCompatActivity {
         System.out.println("apellidos: " + apellidos);
         System.out.println("phone: " + phone);
 
+        Usuario u = new Usuario(correo,password,nombre,apellidos,phone); //Clase Usuario. Pasamos al constructor los datos del usuario para guardarlo.
+        boolean insercionOK = UsuarioController.insertarUsuario(u);
+        if(insercionOK)
+        {
+            Toast.makeText(this,"usuario creado correctamente en sql", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(this,"No se pudo guardar la categoria en sql", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
 
     //método volver
     public void volverbtn(View view) {

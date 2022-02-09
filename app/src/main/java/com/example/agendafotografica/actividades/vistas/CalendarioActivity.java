@@ -3,6 +3,7 @@ package com.example.agendafotografica.actividades.vistas;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,7 @@ public class CalendarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendario);
 
         datePicker = (DatePicker) findViewById(R.id.date_picker);
+
         dateValueTextView = (TextView) findViewById(R.id.date_selected_text_view);
         seleccionarDia = (CardView) findViewById(R.id.cardseleccionarDia);
 
@@ -75,4 +77,6 @@ public class CalendarioActivity extends AppCompatActivity {
         startActivity(borrar);
 
     }
+
+
 }

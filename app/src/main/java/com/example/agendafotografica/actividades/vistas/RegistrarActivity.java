@@ -133,7 +133,10 @@ public class RegistrarActivity extends AppCompatActivity {
         if(insercionOK)
         {
             Toast.makeText(this,"usuario creado correctamente en sql", Toast.LENGTH_SHORT).show();
+            Intent registrar = new Intent(this,MainActivity.class);
+            startActivity(registrar);
         }
+
         else
         {
             Toast.makeText(this,"No se pudo guardar la categoria en sql", Toast.LENGTH_SHORT).show();

@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.agendafotografica.R;
+import com.example.agendafotografica.actividades.modelos.BaseDB;
+import com.example.agendafotografica.actividades.modelos.ConfiguracionDB;
+
+import java.sql.Connection;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,6 +26,8 @@ public class SplashActivity extends AppCompatActivity {
                 //Intent intent = new Intent(SplashActivity.this, LoginActivity.class); //indica a que actividad redigira
                 startActivity(intent);
                 finish();
+
+
             }
         },3000); //tiempo para redirigir
     }

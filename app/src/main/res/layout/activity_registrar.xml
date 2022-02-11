@@ -20,6 +20,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardCorreo"
         android:layout_width="345dp"
@@ -170,11 +172,48 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardRol"
+        android:layout_width="345dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <TextView
+            android:layout_width="146dp"
+            android:layout_height="35dp"
+
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/baumans"
+            android:text="Rol"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerRol"
+            android:layout_width="189dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="150dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardTelefono"
         android:layout_width="345dp"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="480dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -211,7 +250,7 @@
         android:layout_width="163dp"
         android:layout_height="101dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="580dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
         android:onClick="registrarUsuario"
@@ -255,7 +294,7 @@
         android:layout_width="172dp"
         android:layout_height="101dp"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="580dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
         android:onClick="volverbtn"

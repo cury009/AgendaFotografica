@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.agendafotografica.R;
+import com.example.agendafotografica.actividades.clases.Evento;
+import com.example.agendafotografica.actividades.clases.Usuario;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -20,7 +22,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.Serializable;
+
 public class LoginActivity extends AppCompatActivity {
+
+    public static final String ENVIAR_CORREO_LOGIN ="nombre";
+
 
     //private Button btnSignIn;
     private EditText edt_email;
@@ -77,8 +84,15 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Exito!", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
+                            System.out.println("se ve?" + user.getEmail());
+                            //String correo_enviarLogin = edt_email.getText().toString();
+                            String correo_enviarLogin =user.getEmail(); //recoger email
+                            Usuario u = new Usuario(correo_enviarLogin); //Clase Usuario. Pasamos al constructor el string usuario para guardarlo.
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra(ENVIAR_CORREO_LOGIN, user.getEmail());
+
                             startActivity(intent);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.i("firebasedb", "Datos incorrectos", task.getException());

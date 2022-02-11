@@ -1,13 +1,19 @@
 package com.example.agendafotografica.actividades.modelos;
 
+import android.util.Log;
+
 import com.example.agendafotografica.actividades.clases.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class UsuarioDB {
 
+    //metodo insertarUsuarioTabla
     public static boolean insertarUsuarioTabla(Usuario u)
     {
         Connection conexion = BaseDB.conectarConBaseDeDatos();
@@ -17,10 +23,10 @@ public class UsuarioDB {
         }
         //----------------------------
         try {
-            String ordensql = "INSERT INTO usuario (correo, password, nombre, apellidos, telefono) VALUES (?, ?, ?, ?, ?);";
+            String ordensql = "INSERT INTO usuario (correo, rol, nombre, apellidos, telefono) VALUES (?, ?, ?, ?, ?);";
             PreparedStatement pst = conexion.prepareStatement(ordensql);
             pst.setString(1, u.getCorreo());
-            pst.setString(2, u.getPassword());
+            pst.setString(2, u.getRol());
             pst.setString(3, u.getNombre());
             pst.setString(4, u.getApellidos());
             pst.setInt(5, u.getTelefono());
@@ -36,6 +42,40 @@ public class UsuarioDB {
             }
         } catch (SQLException e) {
             return false;
+        }
+    }
+
+
+    //método obtener id_usuario
+    public static ArrayList<Usuario> obtenerUsuario() {
+        Connection conexion = BaseDB.conectarConBaseDeDatos();
+        if(conexion == null)
+        {
+            return null;
+        }
+        ArrayList<Usuario> usuariosDevueltas = new ArrayList<Usuario>();
+        try {
+            Statement sentencia = conexion.createStatement();
+            String ordenSQL = "select * from usuario";
+            ResultSet resultado = sentencia.executeQuery(ordenSQL);
+            while(resultado.next())
+            {
+                Log.i("entra?","entra al bucle");
+                int idUsuario = resultado.getInt("idUsuario");
+                String correo = resultado.getString("correo");
+                Usuario u = new Usuario(idUsuario, correo);
+                usuariosDevueltas.add(u);
+            }
+            resultado.close();
+            sentencia.close();
+            conexion.close();
+
+            System.out.println("usuario devueltsa" + usuariosDevueltas);
+            return usuariosDevueltas;
+
+        } catch (SQLException e) {
+            Log.i("sql", "error sql");
+            return usuariosDevueltas;
         }
     }
 }

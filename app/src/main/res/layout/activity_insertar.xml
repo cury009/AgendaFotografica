@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_usuarioTxt"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".actividades.vistas.InsertarActivity">
@@ -188,12 +189,27 @@
     </androidx.cardview.widget.CardView>
     -->
 
+    <TextView
+        android:id="@+id/correoDB"
+        android:layout_width="347dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/baumans"
+
+        android:text="correo:"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardHora"
         android:layout_width="342dp"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -230,7 +246,7 @@
         android:layout_width="342dp"
         android:layout_height="106dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="280dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -269,7 +285,7 @@
         android:layout_width="174dp"
         android:layout_height="109dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="400dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
         android:onClick="insertarbtn"
@@ -312,7 +328,7 @@
         android:layout_width="177dp"
         android:layout_height="109dp"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="400dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
         android:onClick="volverbtn"

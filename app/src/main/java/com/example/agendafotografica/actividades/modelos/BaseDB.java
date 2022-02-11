@@ -42,6 +42,7 @@ public class BaseDB {
             StrictMode.setThreadPolicy(policy);
             Connection conexion = DriverManager.getConnection(ConfiguracionDB.URLMYSQL, ConfiguracionDB.USUARIODB, ConfiguracionDB.CLAVEDB);
             Log.i("conexion","conexion establecida");
+
             return conexion;
         } catch (SQLException e) {
             Log.i("conexion","no se pudo conectar con la base de datos");

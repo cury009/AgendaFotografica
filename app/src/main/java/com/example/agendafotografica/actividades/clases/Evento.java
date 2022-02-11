@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Evento implements Serializable {
 
-    private String evento;
+
 
 
     private String fecha_recibida;
@@ -23,17 +23,9 @@ public class Evento implements Serializable {
         this.correoUsuario = correoUsuario;
     }
 
-    public Evento(String evento) {
-        this.evento = evento;
-    }
 
-    public String getEvento() {
-        return evento;
-    }
 
-    public void setEvento(String evento) {
-        this.evento = evento;
-    }
+
 
     public String getFecha_recibida() {
         return fecha_recibida;
@@ -68,16 +60,13 @@ public class Evento implements Serializable {
     }
 
 
-
     @Override
     public String toString() {
         return "Evento{" +
-                "evento='" + evento + '\'' +
-                ", fecha_recibida=" + fecha_recibida +
-                ", correoUsuario='" + correoUsuario + '\'' +
+                "fecha_recibida='" + fecha_recibida + '\'' +
                 ", descripcionEvento='" + descripcionEvento + '\'' +
-                ", horaSeleccionada=" + horaSeleccionada +
+                ", horaSeleccionada='" + horaSeleccionada + '\'' +
+                ", correoUsuario='" + correoUsuario + '\'' +
                 '}';
     }
-
 }

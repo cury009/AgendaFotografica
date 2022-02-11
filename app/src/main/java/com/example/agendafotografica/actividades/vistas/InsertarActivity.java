@@ -84,9 +84,10 @@ public class InsertarActivity extends AppCompatActivity {
         String p = intent.getStringExtra(CalendarioActivity.enviarFecha);
         String u = intent.getStringExtra(LoginActivity.ENVIAR_CORREO_LOGIN);
 
-        //Usuario us = (Usuario)intent.getSerializableExtra(LoginActivity.ENVIAR_CORREO_LOGIN);
-        Evento e = (Evento) intent.getSerializableExtra(CalendarioActivity.enviarFecha);
-        String fecha = e.getEvento();
+        //U
+        //Evento e = (Evento) intent.getSerializableExtra(CalendarioActivity.enviarFecha);
+        //String fecha = e.getEvento();
+        String fecha = (String) intent.getSerializableExtra(CalendarioActivity.enviarFecha);
         fecha_recibida = fecha;
         //String correo1 = us.getCorreo();
         //String correo_recibido = correo1;
@@ -98,7 +99,7 @@ public class InsertarActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser() !=null) {
             mAuth.getCurrentUser().getEmail(); //el email
-            correo.setText("correo: " + mAuth.getCurrentUser().getEmail());
+            correo.setText(mAuth.getCurrentUser().getEmail());
         }
 
     }

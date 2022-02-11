@@ -2,6 +2,7 @@ package com.example.agendafotografica.actividades.controladores;
 
 import com.example.agendafotografica.actividades.clases.Evento;
 import com.example.agendafotografica.actividades.tareas.TareaInsertarEvento;
+import com.example.agendafotografica.actividades.tareas.TareaInsertarUsuario;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -15,30 +16,31 @@ public class EventoController {
         FutureTask t = new FutureTask(new TareaInsertarEvento(e));
         ExecutorService es = Executors.newSingleThreadExecutor();
         es.submit(t);
-
-
+        System.out.println("FutureTask: " + t); //Devuelve java.util.concurrent.FutureTask etc etc etc --> si lo devuelve
         boolean insercionOK = false;
-
-        System.out.println("insercionOk: " + insercionOK);
+        System.out.println("insercion ok: " + insercionOK); //false
         try {
-            insercionOK = (boolean) t.get();
+            insercionOK = (boolean) t.get(); //posible linea que falle
+            System.out.println("entra al try?: " + insercionOK); //deberia verse true --> entra como false
             es.shutdown();
             try {
                 if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {
                     es.shutdownNow();
                 }
-            } catch (InterruptedException exception) {
+            } catch (InterruptedException ex) {
                 es.shutdownNow();
             }
-        } catch (
-                ExecutionException exeption) {
-            exeption.printStackTrace();
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
+        } catch (ExecutionException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
         }
         finally {
-            System.out.println("EventoController funciona?" + insercionOK); //tiene que devolver true, devuelve false
+
+            System.out.println("devuelver insercionOK:   "+insercionOK); //muestra false pero deberia mostrar true
             return insercionOK;
+
+
         }
     }
 }

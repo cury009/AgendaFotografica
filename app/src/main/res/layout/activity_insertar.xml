@@ -21,21 +21,93 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/fechaIncorporada"
-        android:layout_width="348dp"
-        android:layout_height="35dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFecha"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/baumans"
-        android:text="Dia Seleccionado:"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/TituloInsertar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/TituloInsertar"
-        app:layout_constraintTop_toBottomOf="@+id/TituloInsertar" />
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="43dp"
+
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/baumans"
+            android:text="Dia Seleccionado:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fechaIncorporada"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="180dp"
+
+            android:fontFamily="@font/baumans"
+            android:gravity="center"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/TituloInsertar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/TituloInsertar"
+            app:layout_constraintTop_toBottomOf="@+id/TituloInsertar" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCorreo"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <TextView
+            android:layout_width="116dp"
+            android:layout_height="43dp"
+
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/baumans"
+            android:text="Correo:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/correoDB"
+            android:layout_width="216dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="120dp"
+            android:fontFamily="@font/baumans"
+
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
 
     <!--
@@ -189,27 +261,13 @@
     </androidx.cardview.widget.CardView>
     -->
 
-    <TextView
-        android:id="@+id/correoDB"
-        android:layout_width="347dp"
-        android:layout_height="43dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="140dp"
-        android:fontFamily="@font/baumans"
-
-        android:text="correo:"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardHora"
         android:layout_width="342dp"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="250dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -246,7 +304,7 @@
         android:layout_width="349dp"
         android:layout_height="64dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="340dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -270,7 +328,7 @@
 
             android:layout_marginTop="10dp"
             android:fontFamily="@font/baumans"
-            android:text="Descripcion"
+            android:text="Descripcion:"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp" />
@@ -283,7 +341,7 @@
         android:layout_width="174dp"
         android:layout_height="109dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="450dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
         android:onClick="insertarbtn"
@@ -326,7 +384,7 @@
         android:layout_width="177dp"
         android:layout_height="109dp"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="450dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
         android:onClick="volverbtn"

@@ -18,7 +18,8 @@ public class TareaInsertarEvento implements Callable<Boolean> {
     public Boolean call() throws Exception {
         boolean insertadoOK = EventoDB.insertarEventoTabla(e);
 
-        System.out.println("tareainsertarEvento funciona?");
+        System.out.println("tareainsertarEvento1    "+  e);
+        System.out.println("tareainsertarEvento2 funciona?" + insertadoOK);
         return insertadoOK;
     }
 }

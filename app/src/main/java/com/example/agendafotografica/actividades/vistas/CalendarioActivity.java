@@ -46,7 +46,7 @@ public class CalendarioActivity extends AppCompatActivity {
     //método boton selecciona el dia
     public void seleccionar(View view) {
         Toast.makeText(getApplicationContext(), "Selecciona el dia", Toast.LENGTH_SHORT).show();
-        dateValueTextView.setText("Dia Seleccionado: " + datePicker.getDayOfMonth() + "/" +(datePicker.getMonth()+1)  + "/" + datePicker.getYear());
+        dateValueTextView.setText(datePicker.getDayOfMonth() + "/" +(datePicker.getMonth()+1)  + "/" + datePicker.getYear());
 
 
     }
@@ -65,8 +65,8 @@ public class CalendarioActivity extends AppCompatActivity {
         String fecha = String.valueOf(dateValueTextView.getText()); //guardar la fecha en una variable String
         Intent insertar = new Intent(this, InsertarActivity.class); //dirige a la pantalla InsertarActivity
 
-        Evento e = new Evento(fecha); //Clase Evento. Pasamos al constructor el string fecha para guardarlo.
-        insertar.putExtra(enviarFecha, e); //enviar a la otra pantalla, la fecha elegida.
+        //Evento e = new Evento(fecha); //Clase Evento. Pasamos al constructor el string fecha para guardarlo.
+        insertar.putExtra(enviarFecha, fecha); //enviar a la otra pantalla, la fecha elegida.
         startActivity(insertar); //iniciar InsertarActivity
 
     }

@@ -62,13 +62,22 @@
 
     <TextView
         android:id="@+id/date_selected_text_view"
-        android:layout_width="355dp"
+        android:layout_width="162dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="580dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
-        android:text="" />
+        android:text=""
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="580dp"
+        android:fontFamily="@font/baumans"
+        android:text="Dia Seleccionado:"
+        android:textSize="16sp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardmostrar"
@@ -203,9 +212,6 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-
-
 
 
 </RelativeLayout>

@@ -17,9 +17,12 @@ public class UsuarioController {
         FutureTask t = new FutureTask(new TareaInsertarUsuario(u));
         ExecutorService es = Executors.newSingleThreadExecutor();
         es.submit(t);
+        System.out.println("FutureTask: " + t);
         boolean insercionOK = false;
+        System.out.println("insercion ok: " + t);
         try {
             insercionOK = (boolean) t.get();
+            System.out.println("entra al try?: " + insercionOK);
             es.shutdown();
             try {
                 if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {

@@ -86,8 +86,8 @@ public class LoginActivity extends AppCompatActivity {
                             //updateUI(user);
                             System.out.println("se ve?" + user.getEmail());
                             //String correo_enviarLogin = edt_email.getText().toString();
-                            String correo_enviarLogin =user.getEmail(); //recoger email
-                            Usuario u = new Usuario(correo_enviarLogin); //Clase Usuario. Pasamos al constructor el string usuario para guardarlo.
+                            //String correo_enviarLogin =user.getEmail(); //recoger email
+                            //Usuario u = new Usuario(correo_enviarLogin); //Clase Usuario. Pasamos al constructor el string usuario para guardarlo.
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra(ENVIAR_CORREO_LOGIN, user.getEmail());
 

@@ -61,7 +61,7 @@ public class RegistrarActivity extends AppCompatActivity {
         edtTelefono = (EditText) findViewById(R.id.edtTelefono);
         edtCorreo = (EditText) findViewById(R.id.edtCorreo);
         edtPass = (EditText) findViewById(R.id.edtPass);
-        edtDescripcion = (EditText) findViewById(R.id.edtDescripcion);
+
         spinner = (Spinner) findViewById(R.id.spinnerRol);
 
         //atributos spinnerRol

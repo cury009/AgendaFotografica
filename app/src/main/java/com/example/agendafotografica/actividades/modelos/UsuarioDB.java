@@ -46,36 +46,5 @@ public class UsuarioDB {
     }
 
 
-    //método obtener id_usuario
-    public static ArrayList<Usuario> obtenerUsuario() {
-        Connection conexion = BaseDB.conectarConBaseDeDatos();
-        if(conexion == null)
-        {
-            return null;
-        }
-        ArrayList<Usuario> usuariosDevueltas = new ArrayList<Usuario>();
-        try {
-            Statement sentencia = conexion.createStatement();
-            String ordenSQL = "select * from usuario";
-            ResultSet resultado = sentencia.executeQuery(ordenSQL);
-            while(resultado.next())
-            {
-                Log.i("entra?","entra al bucle");
-                int idUsuario = resultado.getInt("idUsuario");
-                String correo = resultado.getString("correo");
-                Usuario u = new Usuario(idUsuario, correo);
-                usuariosDevueltas.add(u);
-            }
-            resultado.close();
-            sentencia.close();
-            conexion.close();
 
-            System.out.println("usuario devueltsa" + usuariosDevueltas);
-            return usuariosDevueltas;
-
-        } catch (SQLException e) {
-            Log.i("sql", "error sql");
-            return usuariosDevueltas;
-        }
-    }
 }

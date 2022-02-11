@@ -232,7 +232,7 @@
         <Spinner
             android:id="@+id/spinnerHora"
             android:layout_width="186dp"
-            android:layout_height="wrap_content"
+            android:layout_height="39dp"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="10dp"
 
@@ -243,8 +243,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardDescripcion"
-        android:layout_width="342dp"
-        android:layout_height="106dp"
+        android:layout_width="349dp"
+        android:layout_height="64dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="280dp"
         android:layout_marginBottom="16dp"
@@ -254,6 +254,15 @@
         app:cardElevation="6dp"
         app:layout_columnWeight="1"
         app:layout_rowWeight="1">
+
+        <Spinner
+            android:id="@+id/spinnerDescripcion"
+            android:layout_width="186dp"
+            android:layout_height="39dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="146dp"
@@ -265,17 +274,6 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edtDescripcion"
-            android:layout_width="332dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="50dp"
-            android:ems="10"
-            android:gravity="start"
-            android:inputType="textMultiLine"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
     </androidx.cardview.widget.CardView>

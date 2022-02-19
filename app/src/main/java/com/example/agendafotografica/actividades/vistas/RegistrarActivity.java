@@ -43,7 +43,7 @@ public class RegistrarActivity extends AppCompatActivity {
     public String nombre;
     public String apellidos;
     public int phone;
-    public String rol;
+    public String rol = "cliente";
 
     //Variable para gestionar FirebaseAuth
     private FirebaseAuth mAuth;
@@ -62,7 +62,7 @@ public class RegistrarActivity extends AppCompatActivity {
         edtCorreo = (EditText) findViewById(R.id.edtCorreo);
         edtPass = (EditText) findViewById(R.id.edtPass);
 
-        spinner = (Spinner) findViewById(R.id.spinnerRol);
+        //spinner = (Spinner) findViewById(R.id.spinnerRol);
 
         //atributos spinnerRol
         String [] rol= {"administrador", "cliente"};
@@ -137,8 +137,8 @@ public class RegistrarActivity extends AppCompatActivity {
         apellidos = String.valueOf(edtApellidos.getText().toString());
         phone = Integer.valueOf(edtTelefono.getText().toString());
 
-        spinner.getSelectedItem().toString();
-        rol= (String)spinner.getSelectedItem();
+        //spinner.getSelectedItem().toString();
+        //rol= (String)spinner.getSelectedItem();
         //rol = String.valueOf(spinner);
 
         //spinner = String.valueOf(spinnerRol.getText().toString());

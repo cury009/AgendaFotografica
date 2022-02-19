@@ -171,6 +171,7 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!--
     <androidx.cardview.widget.CardView
         android:id="@+id/cardRol"
         android:layout_width="345dp"
@@ -206,7 +207,7 @@
         />
 
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardTelefono"

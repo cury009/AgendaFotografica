@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaFotografica.NoActionBar">
         <activity
+            android:name=".actividades.vistas.MostrarDetallesEventoActivity"
+            android:exported="true" />
+        <activity
             android:name=".actividades.vistas.RegistrarActivity"
             android:exported="true" />
         <activity

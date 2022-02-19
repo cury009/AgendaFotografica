@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Exito!", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
-                            System.out.println("se ve?" + user.getEmail());
+                            //.out.println("se ve?" + user.getEmail());
                             //String correo_enviarLogin = edt_email.getText().toString();
                             //String correo_enviarLogin =user.getEmail(); //recoger email
                             //Usuario u = new Usuario(correo_enviarLogin); //Clase Usuario. Pasamos al constructor el string usuario para guardarlo.

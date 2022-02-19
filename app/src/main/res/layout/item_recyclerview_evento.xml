@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_rv_curso_evento"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:contentDescription="foto evento"
+        android:src="@drawable/fotografo" />
+
+    <LinearLayout
+        android:layout_width="269dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txt_rv_evento_nombree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="correo"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_rv_evento_descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="descripcion" />
+
+        <LinearLayout
+            android:layout_width="269dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_rv_evento_fecha"
+                android:layout_width="119dp"
+                android:layout_height="30dp"
+                android:text="fecha" />
+
+            <TextView
+                android:id="@+id/txt_rv_evento_hora"
+                android:layout_width="149dp"
+                android:layout_height="30dp"
+                android:text="hora" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

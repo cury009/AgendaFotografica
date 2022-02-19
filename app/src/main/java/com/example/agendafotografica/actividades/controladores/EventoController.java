@@ -3,7 +3,9 @@ package com.example.agendafotografica.actividades.controladores;
 import com.example.agendafotografica.actividades.clases.Evento;
 import com.example.agendafotografica.actividades.tareas.TareaInsertarEvento;
 import com.example.agendafotografica.actividades.tareas.TareaInsertarUsuario;
+import com.example.agendafotografica.actividades.tareas.TareaObtenerEventos;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class EventoController {
 
+    //---------------------------------------------INsertar Evento
     public static boolean insertarEvento(Evento e) {
         FutureTask t = new FutureTask(new TareaInsertarEvento(e));
         ExecutorService es = Executors.newSingleThreadExecutor();
@@ -42,5 +45,30 @@ public class EventoController {
 
 
         }
+
+
+    }
+    //------------------------------------------------------------------- obtener Evento
+    public static ArrayList<Evento> obtenereventos() {
+        ArrayList<Evento> eventos = null;
+        FutureTask t = new FutureTask (new TareaObtenerEventos()); //crear tarea
+        ExecutorService es = Executors.newSingleThreadExecutor(); //crear un hilo de ejecucion
+        es.submit(t); //lo lanzas
+        try {
+            eventos= (ArrayList<Evento>)t.get(); //obtiene el resultado de la tarea (son los cursos)
+            es.shutdown();//apagas el hilo que hhas lanzado anteriormente
+            try { //si no se apaga bien
+                if (!es.awaitTermination(2000, TimeUnit.MILLISECONDS)) {
+                    es.shutdownNow(); //apagar inmediatamente
+                }
+            } catch (InterruptedException e) {
+                es.shutdownNow();
+            }
+        } catch (ExecutionException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        return eventos; //devuelve eventos
     }
 }

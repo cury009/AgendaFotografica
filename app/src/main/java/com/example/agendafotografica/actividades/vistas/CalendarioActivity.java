@@ -70,12 +70,12 @@ public class CalendarioActivity extends AppCompatActivity {
         startActivity(insertar); //iniciar InsertarActivity
 
     }
-    //método botón borrar evento
-    public void borrar(View view) {
-        Toast.makeText(getApplicationContext(), "Iniciar Pantlla Borrar", Toast.LENGTH_SHORT).show();
-        Intent borrar = new Intent(this, BorrarActivity.class);
-        startActivity(borrar);
 
+    //método botón volver
+    public void volverbtn(View view) {
+        //.makeText(getApplicationContext(), "Iniciar Pantalla Mostrar", Toast.LENGTH_SHORT).show();
+        Intent volver = new Intent(this, MainActivity.class);
+        startActivity(volver);
     }
 
 

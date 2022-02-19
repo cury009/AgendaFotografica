@@ -169,46 +169,46 @@
 
     </androidx.cardview.widget.CardView>
 
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardborrar"
-        android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:id="@+id/cardVolverbtn"
+        android:layout_width="171dp"
+        android:layout_height="119dp"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="600dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
-        android:onClick="borrar"
-        app:cardBackgroundColor="#FF5E5E"
+        android:onClick="volverbtn"
+        app:cardBackgroundColor="#A9ACE1"
         app:cardCornerRadius="8dp"
         app:cardElevation="6dp"
         app:layout_columnWeight="1"
         app:layout_rowWeight="1">
 
         <LinearLayout
-            android:layout_width="179dp"
+            android:layout_width="177dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="171dp"
+                android:layout_width="133dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:contentDescription="@string/todo"
-                android:src="@drawable/borrar" />
+                android:src="@drawable/volver" />
 
             <TextView
-                android:layout_width="167dp"
+                android:layout_width="133dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/baumans"
-                android:foregroundTint="#FFFFFF"
-                android:text="Borrar Evento"
+                android:text="VOLVER"
                 android:textAlignment="center"
-                android:textColor="@color/colorSplash"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

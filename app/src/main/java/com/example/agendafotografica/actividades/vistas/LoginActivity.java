@@ -105,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void registrar(View view)
     {
+        System.out.println("aqui accede¿?");
         Intent i = new Intent(LoginActivity.this, RegistrarActivity.class);
         startActivity(i);
         /*

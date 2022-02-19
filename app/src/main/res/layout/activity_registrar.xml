@@ -171,6 +171,7 @@
 
     </androidx.cardview.widget.CardView>
 
+
     <!--
     <androidx.cardview.widget.CardView
         android:id="@+id/cardRol"
@@ -207,7 +208,8 @@
         />
 
 
-    </androidx.cardview.widget.CardView>-->
+    </androidx.cardview.widget.CardView>
+    -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardTelefono"

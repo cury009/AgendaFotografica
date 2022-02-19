@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.agendafotografica.R;
 import com.example.agendafotografica.actividades.clases.Evento;
@@ -34,5 +36,19 @@ public class MostrarDetallesEventoActivity extends AppCompatActivity {
             txt_detalle_horae.setText("hora: " + String.valueOf(e.getHoraSeleccionada()));
             txt_detalle_fechae.setText("fecha: " + String.valueOf(e.getFecha_recibida()));
         }
+    }
+
+    //método botón borrar evento
+    public void borrar(View view) {
+        Toast.makeText(getApplicationContext(), "Iniciar Pantlla Borrar", Toast.LENGTH_SHORT).show();
+        Intent borrar = new Intent(this, BorrarActivity.class);
+        startActivity(borrar);
+
+    }
+    //método botón volver
+    public void volverbtn(View view) {
+        //.makeText(getApplicationContext(), "Iniciar Pantalla Mostrar", Toast.LENGTH_SHORT).show();
+        Intent volver = new Intent(this, CalendarioActivity.class);
+        startActivity(volver);
     }
 }

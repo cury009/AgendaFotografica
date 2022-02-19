@@ -53,8 +53,7 @@
             android:layout_marginLeft="180dp"
 
             android:fontFamily="@font/baumans"
-            android:gravity="center"
-            android:textAlignment="textStart"
+
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/TituloInsertar"

@@ -43,7 +43,7 @@ public class RegistrarActivity extends AppCompatActivity {
     public String nombre;
     public String apellidos;
     public int phone;
-    public String rol = "cliente";
+    public String rol;
 
     //Variable para gestionar FirebaseAuth
     private FirebaseAuth mAuth;
@@ -64,11 +64,14 @@ public class RegistrarActivity extends AppCompatActivity {
 
         //spinner = (Spinner) findViewById(R.id.spinnerRol);
 
+        /*
         //atributos spinnerRol
         String [] rol= {"administrador", "cliente"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, rol);
         spinner.setAdapter(adapter);
 
+
+         */
 
 
         // Configurar Google Sign In
@@ -101,6 +104,8 @@ public class RegistrarActivity extends AppCompatActivity {
         String password = String.valueOf(edtPass.getText());
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -111,9 +116,10 @@ public class RegistrarActivity extends AppCompatActivity {
 
                             FirebaseUser user = mAuth.getCurrentUser();
                             // updateUI(user);
-                            String correo_enviarRegistrar = edtCorreo.getText().toString();
-                            Intent intent = new Intent(RegistrarActivity.this, MainActivity.class);
-                            intent.putExtra(ENVIAR_CORREO_REGISTRAR, correo_enviarRegistrar);
+                            String correo_enviarRegistrar = edtCorreo.getText().toString(); //enviar correo a otras pantallsa
+                            //String password_enviar
+                            Intent intent = new Intent(RegistrarActivity.this, MainActivity.class); //redirigir a pantalla MainActivity
+                            intent.putExtra(ENVIAR_CORREO_REGISTRAR, correo_enviarRegistrar); //pasamos el correo
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -140,6 +146,7 @@ public class RegistrarActivity extends AppCompatActivity {
         //spinner.getSelectedItem().toString();
         //rol= (String)spinner.getSelectedItem();
         //rol = String.valueOf(spinner);
+        rol = String.valueOf("cliente");
 
         //spinner = String.valueOf(spinnerRol.getText().toString());
         //prueba de que se guardan
@@ -148,7 +155,7 @@ public class RegistrarActivity extends AppCompatActivity {
         System.out.println("nombre: " + nombre);
         System.out.println("apellidos: " + apellidos);
         System.out.println("phone: " + phone);
-        System.out.println("spinner: " + spinner);
+        //System.out.println("spinner: " + spinner);
         System.out.println("rol: " + rol);
 
         Usuario u = new Usuario(correo,password,nombre,apellidos,phone,rol); //Clase Usuario. Pasamos al constructor los datos del usuario para guardarlo.

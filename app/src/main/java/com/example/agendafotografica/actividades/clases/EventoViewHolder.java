@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agendafotografica.R;
+import com.example.agendafotografica.actividades.vistas.MostrarActivity;
 import com.example.agendafotografica.actividades.vistas.MostrarDetallesEventoActivity;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class EventoViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener { //heredar de RecyclerViewHolder
     //ONclickListener. para hacer el onclick de la ventana detalle
     public static final String EXTRA_OBJETO_EVENTO =  "com.example.agendafotografica.actividades";
+    public TextView txt_rv_evento_ideventoe = null;
     public TextView txt_rv_evento_nombree = null;
     public TextView txt_rv_evento_descripcion = null;
     public TextView txt_rv_evento_hora = null;
@@ -25,6 +27,7 @@ public class EventoViewHolder  extends RecyclerView.ViewHolder implements View.O
         //itemView la vista que genero el inflate
         //lo enlazas con listaCursoAdapter y lcAdapter
         super(itemView);
+
         txt_rv_evento_nombree = (TextView)  itemView.findViewById(R.id.txt_rv_evento_nombree); //enlazar
         txt_rv_evento_descripcion = (TextView)  itemView.findViewById(R.id.txt_rv_evento_descripcion); //enlazar
         txt_rv_evento_hora = (TextView)  itemView.findViewById(R.id.txt_rv_evento_hora); //enlazar

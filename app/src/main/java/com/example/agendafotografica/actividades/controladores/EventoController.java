@@ -1,11 +1,13 @@
 package com.example.agendafotografica.actividades.controladores;
 
 import com.example.agendafotografica.actividades.clases.Evento;
+import com.example.agendafotografica.actividades.tareas.TareaBorrarEvento;
 import com.example.agendafotografica.actividades.tareas.TareaInsertarEvento;
 import com.example.agendafotografica.actividades.tareas.TareaInsertarUsuario;
 import com.example.agendafotografica.actividades.tareas.TareaObtenerEventos;
 
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,9 +51,9 @@ public class EventoController {
 
     }
     //------------------------------------------------------------------- obtener Evento
-    public static ArrayList<Evento> obtenereventos() {
+    public static ArrayList<Evento> obtenereventos(String correo) {
         ArrayList<Evento> eventos = null;
-        FutureTask t = new FutureTask (new TareaObtenerEventos()); //crear tarea
+        FutureTask t = new FutureTask (new TareaObtenerEventos(correo)); //crear tarea
         ExecutorService es = Executors.newSingleThreadExecutor(); //crear un hilo de ejecucion
         es.submit(t); //lo lanzas
         try {
@@ -71,4 +73,45 @@ public class EventoController {
         }
         return eventos; //devuelve eventos
     }
+    //---------------------------------------------------------------------------borrar Evento
+
+    public static boolean borrarEvento(Integer evento, String correo) //recoge un int evento
+    {
+        //System.out.println("0 inicio de tarea");
+        FutureTask t = new FutureTask(new TareaBorrarEvento(evento, correo));
+        ExecutorService es = Executors.newSingleThreadExecutor();
+        es.submit(t);
+        boolean borradoOK = false;
+        try {
+            //System.out.println("1 try");
+            borradoOK = (boolean) t.get();
+            es.shutdown();
+            try {
+                //System.out.println("2 try");
+                if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {
+                    es.shutdownNow();
+                    //System.out.println("3 if");
+                }
+            } catch (InterruptedException e) {
+                es.shutdownNow();
+                //System.out.println("4 excepcion");
+            }
+        } catch (
+                ExecutionException e) {
+            //System.out.println("5 excepcion");
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            //System.out.println("6 excepcion");
+            e.printStackTrace();
+        }
+        finally {
+            //System.out.println("7: borrado ok: " + borradoOK);
+            return borradoOK;
+
+        }
+    }
+
+
+
+
 }

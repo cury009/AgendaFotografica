@@ -46,4 +46,10 @@ public class UsuarioController {
     }
 
 
+    /*public static String obtenerPerfil(String micorreo) {
+
+    }
+
+     */
+
 }

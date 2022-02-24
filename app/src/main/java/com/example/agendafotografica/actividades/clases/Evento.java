@@ -1,15 +1,10 @@
 package com.example.agendafotografica.actividades.clases;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Date;
-import java.util.Objects;
 
 public class Evento implements Serializable {
 
-
-
-
+    private Integer idEvento;
     private String fecha_recibida;
     private String descripcionEvento;
     private String horaSeleccionada;
@@ -23,9 +18,23 @@ public class Evento implements Serializable {
         this.correoUsuario = correoUsuario;
     }
 
+    //constructor con idevento
+    public Evento(Integer idevento, String fecha_recibida, String descripcionEvento, String horaSeleccionada, String correoUsuario) {
 
+        this.idEvento = idevento;
+        this.fecha_recibida = fecha_recibida;
+        this.descripcionEvento = descripcionEvento;
+        this.horaSeleccionada = horaSeleccionada;
+        this.correoUsuario = correoUsuario;
+    }
 
+    public Integer getIdEvento() {
+        return idEvento;
+    }
 
+    public void setIdEvento(Integer idEvento) {
+        this.idEvento = idEvento;
+    }
 
     public String getFecha_recibida() {
         return fecha_recibida;
@@ -63,7 +72,8 @@ public class Evento implements Serializable {
     @Override
     public String toString() {
         return "Evento{" +
-                "fecha_recibida='" + fecha_recibida + '\'' +
+                "idEvento=" + idEvento +
+                ", fecha_recibida='" + fecha_recibida + '\'' +
                 ", descripcionEvento='" + descripcionEvento + '\'' +
                 ", horaSeleccionada='" + horaSeleccionada + '\'' +
                 ", correoUsuario='" + correoUsuario + '\'' +

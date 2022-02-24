@@ -20,11 +20,39 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_detalle_Correo"
+        android:id="@+id/card_detalle_ideventoe"
         android:layout_width="342dp"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="250dp"
+        android:layout_marginBottom="16dp"
+        android:foreground="?selectableItemBackground"
+
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1">
+
+        <TextView
+            android:id="@+id/txt_detalle_ideventoe"
+            android:layout_width="match_parent"
+
+            android:layout_height="43dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/baumans"
+            android:text="idevento"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_detalle_Correo"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="320dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -52,7 +80,7 @@
         android:layout_width="342dp"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="390dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -80,7 +108,7 @@
         android:layout_width="342dp"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="460dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 
@@ -108,7 +136,7 @@
         android:layout_width="342dp"
         android:layout_height="57dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="530dp"
         android:layout_marginBottom="16dp"
         android:foreground="?selectableItemBackground"
 

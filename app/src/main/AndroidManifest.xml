@@ -18,9 +18,6 @@
             android:name=".actividades.vistas.RegistrarActivity"
             android:exported="true" />
         <activity
-            android:name=".actividades.vistas.BorrarActivity"
-            android:exported="true" />
-        <activity
             android:name=".actividades.vistas.InsertarActivity"
             android:exported="true" />
         <activity

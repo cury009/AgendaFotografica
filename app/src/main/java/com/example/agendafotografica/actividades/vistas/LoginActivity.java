@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println("aqui accede¿?");
         Intent i = new Intent(LoginActivity.this, RegistrarActivity.class);
         startActivity(i);
-        /*
+
         String email = String.valueOf(edt_email.getText()).trim();
         String password = String.valueOf(edt_clave.getText());
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                             //  updateUI(null);
                         }
                     }
-                });*/
+                });
     }
 
     public void salir(View view) {
@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    //========================================================================================================firebase
+    //========================================================================================================firebase google
     /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -189,7 +189,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    */
+
 
 
     /*

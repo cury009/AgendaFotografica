@@ -13,25 +13,43 @@ import com.example.agendafotografica.R;
 import com.example.agendafotografica.actividades.clases.Evento;
 import com.example.agendafotografica.actividades.clases.ListaEventosAdapter;
 import com.example.agendafotografica.actividades.controladores.EventoController;
+import com.example.agendafotografica.actividades.controladores.UsuarioController;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MostrarActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+
     //atributos
     private RecyclerView rv_eventos;
-    private ListaEventosAdapter mAdapter;
+    public static ListaEventosAdapter mAdapter;
     private List<Evento> evento;
+    private String miperfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar);
+        mAuth = FirebaseAuth.getInstance();
         rv_eventos = findViewById(R.id.rv_evento); //enlazar con recycler view
 
         mAdapter = new ListaEventosAdapter(this); //objeto
-        ArrayList<Evento> eventos = EventoController.obtenereventos(); //obtienes todos los eventos de la base de datos
+        String micorreo = mAuth.getCurrentUser().getEmail();
+        System.out.println("que tiene micorreo:   " + micorreo);
+        ArrayList<Evento> eventos;
+
+        //miperfil = UsuarioController.obtenerPerfil(micorreo);
+        //if(miperfil.equalsIgnoreCase("administrador")) {
+            //obtener evento de administrador, no filtro por correo
+            //eventos = EventoController.obtenereventosAdministrador();
+        //}
+        //else {
+            eventos = EventoController.obtenereventos(micorreo); //obtienes todos los eventos de la base de datos del usuario
+        //}
+
         if(eventos != null) { //si contiene cursos entra
             mAdapter.setListaEventos(eventos); //se lo asigna al adapttador
         }

@@ -38,8 +38,8 @@ public class BaseDB {
 
     public static Connection conectarConBaseDeDatos() {
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); //estas lineas son importantes para probar en el movil
+            StrictMode.setThreadPolicy(policy); //estas lineas son importantes para probar en el movil
             Connection conexion = DriverManager.getConnection(ConfiguracionDB.URLMYSQL, ConfiguracionDB.USUARIODB, ConfiguracionDB.CLAVEDB);
             Log.i("conexion","conexion establecida");
 

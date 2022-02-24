@@ -40,6 +40,7 @@ public class CalendarioActivity extends AppCompatActivity {
         Calendar today = Calendar.getInstance();
         long now = today.getTimeInMillis();
         datePicker.setMinDate(now);
+
         
     }
 
@@ -48,14 +49,6 @@ public class CalendarioActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Selecciona el dia", Toast.LENGTH_SHORT).show();
         dateValueTextView.setText(datePicker.getDayOfMonth() + "/" +(datePicker.getMonth()+1)  + "/" + datePicker.getYear());
 
-
-    }
-    //método botón mostrar evento
-    public void mostrar(View view) {
-
-        Toast.makeText(getApplicationContext(), "Iniciar Pantalla Mostrar", Toast.LENGTH_SHORT).show();
-        Intent mostrar = new Intent(this, MostrarActivity.class);
-        startActivity(mostrar);
 
     }
     //método botón fijar evento
@@ -70,6 +63,15 @@ public class CalendarioActivity extends AppCompatActivity {
         startActivity(insertar); //iniciar InsertarActivity
 
     }
+    //método botón mostrar evento
+    public void mostrar(View view) {
+
+        Toast.makeText(getApplicationContext(), "Iniciar Pantalla Mostrar", Toast.LENGTH_SHORT).show();
+        Intent mostrar = new Intent(this, MostrarActivity.class);
+        startActivity(mostrar);
+
+    }
+
 
     //método botón volver
     public void volverbtn(View view) {

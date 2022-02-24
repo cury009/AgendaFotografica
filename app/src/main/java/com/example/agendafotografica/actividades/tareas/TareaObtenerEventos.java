@@ -8,9 +8,15 @@ import java.util.concurrent.Callable;
 
 public class TareaObtenerEventos implements Callable<ArrayList<Evento>> { //hilo de ejecucion que devuelve <>
 
+    private String correo = null;
+
+    public TareaObtenerEventos(String correo) {
+        this.correo = correo;
+    }
+
     @Override
     public ArrayList<Evento> call() throws Exception {  //metodo que hay que sobrescribir obligatoriamente
-        ArrayList<Evento> eventos= EventoDB.obtenerEventos(); //obtiene todos los eventos de EventoDb
+        ArrayList<Evento> eventos= EventoDB.obtenerEventos(correo); //obtiene todos los eventos de EventoDb
         return eventos; //devuelve cursos
     }
 }

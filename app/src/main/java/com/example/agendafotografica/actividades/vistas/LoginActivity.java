@@ -2,17 +2,17 @@ package com.example.agendafotografica.actividades.vistas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.PatternsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.agendafotografica.R;
-import com.example.agendafotografica.actividades.clases.Evento;
-import com.example.agendafotografica.actividades.clases.Usuario;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -22,16 +22,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.io.Serializable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static final String ENVIAR_CORREO_LOGIN ="nombre";
+    //variable
+    public static final String ENVIAR_CORREO_LOGIN = "nombre";
 
 
     //private Button btnSignIn;
-    private EditText edt_email;
-    private EditText edt_clave;
+    private EditText edt_email; //aqui se guardará en memoria el correo
+    private EditText edt_clave; //aqui se guardará en memoria la contraseña
     //Constante
     int RC_SIGN_IN = 1;
     String TAG = "GoogleSignIn";
@@ -41,10 +43,12 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login); //enlazamos layout
 
         //emparejar objetos del diseño con la clase java
         edt_email = findViewById(R.id.edtEmail);
@@ -67,46 +71,93 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
 
+    private boolean validateEmailAddress (EditText edt_email) {
+        String email = String.valueOf(edt_email.getText());
+        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
+            return true;
+        }
+        else {
+
+            edt_email.setError("Escribe el correo correctamente");
+            edt_email.requestFocus();
+            return false;
+        }
+    }
+    private boolean validatePassword (EditText edt_clave) {
+        String password = String.valueOf(edt_clave.getText());
+        if(!password.isEmpty()) {
+
+            return true;
+        }
+        else {
+
+            edt_clave.setError("Escribe una contraseña");
+            edt_clave.requestFocus();
+            return false;
+        }
     }
 
     public void loguearse(View view) {
+
+        validateEmailAddress(edt_email);
+        validatePassword(edt_clave);
         String email = String.valueOf(edt_email.getText());
         String password = String.valueOf(edt_clave.getText());
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.i("firebasedb", "signInWithEmail:success");
-                            Toast.makeText(LoginActivity.this, "Exito!", Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                            //.out.println("se ve?" + user.getEmail());
-                            //String correo_enviarLogin = edt_email.getText().toString();
-                            //String correo_enviarLogin =user.getEmail(); //recoger email
-                            //Usuario u = new Usuario(correo_enviarLogin); //Clase Usuario. Pasamos al constructor el string usuario para guardarlo.
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtra(ENVIAR_CORREO_LOGIN, user.getEmail());
+        /*if(email.equals("")){
+            edt_email.setError("Escribe el correo");
+            edt_email.requestFocus();
+        }
+        else if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            edt_email.setError("Escribe un correo valido");
+            edt_email.requestFocus();
+        }*/
+        //else {
+        if (validateEmailAddress(edt_email) == true && validatePassword(edt_clave) == true) {
+            mAuth.signInWithEmailAndPassword(email, password)
 
-                            startActivity(intent);
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {  //si tarea es correcta--> entra
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.i("firebasedb", "signInWithEmail:success");
+                                Toast.makeText(LoginActivity.this, "Exito!", Toast.LENGTH_SHORT).show(); //muestra en pantalla un mensaje
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                //updateUI(user);
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.i("firebasedb", "Datos incorrectos", task.getException());
-                            Toast.makeText(LoginActivity.this, "signInWithEmail:failure", Toast.LENGTH_SHORT).show();
-                            // updateUI(null);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class); //aqui crea una nueva petaña
+                                intent.putExtra(ENVIAR_CORREO_LOGIN, user.getEmail()); //pasamos correo a la siguinete pantalla
+
+                                startActivity(intent); //inicia pantalla
+                                finish(); //cierra pantalla
+
+                            } else { //si la tarea es incorrecta
+                                // If sign in fails, display a message to the user.
+                                Log.i("firebasedb", "Datos incorrectos", task.getException());
+                                Toast.makeText(LoginActivity.this, "inicio de sesion incorrectos", Toast.LENGTH_SHORT).show();
+                                //muestra un mensaje en pantalla
+
+                            }
                         }
-                    }
-                });
-    }
+                    });
+            //}
 
-    public void registrar(View view)
-    {
-        System.out.println("aqui accede¿?");
-        Intent i = new Intent(LoginActivity.this, RegistrarActivity.class);
+        }
+        else {
+            Toast.makeText(LoginActivity.this, "fallo", Toast.LENGTH_LONG).show(); ;
+        }
+        }
+
+
+
+
+    //botón registrar
+    public void registrar(View view) {
+
+        Intent i = new Intent(LoginActivity.this, RegistrarActivity.class); //crea una vista a Registrar Activity
         startActivity(i);
 
         String email = String.valueOf(edt_email.getText()).trim();
@@ -137,6 +188,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
     }
 
+}
 
     //========================================================================================================firebase google
     /*
@@ -215,6 +267,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }*/
 
+    /*
     //método boton google
     public void loginGoogle (View view) {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -222,7 +275,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
-    }
+    }*/
     //método pasar al MainActivity
     /*public void irMainActivity (View view){
 
@@ -230,4 +283,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(i);
     }*/
 
-}
+//}

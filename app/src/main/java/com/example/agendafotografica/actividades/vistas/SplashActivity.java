@@ -14,21 +14,23 @@ import java.sql.Connection;
 
 public class SplashActivity extends AppCompatActivity {
 
+    //Activity de la animación. Al iniciar empezará cargando un icono de la aplicación
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_splash); //emlazar con el layout
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, LoginActivity.class); //indica a que actividad redigira
+                //en este caso abre LoginActivity
                 //Intent intent = new Intent(SplashActivity.this, LoginActivity.class); //indica a que actividad redigira
-                startActivity(intent);
-                finish();
+                startActivity(intent); //inicia
+                finish(); //cierra Activity
 
 
             }
-        },3000); //tiempo para redirigir
+        },3000); //tiempo para redirigir en milisengundos
     }
 }

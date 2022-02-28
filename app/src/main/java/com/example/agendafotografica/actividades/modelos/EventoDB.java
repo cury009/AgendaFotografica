@@ -54,7 +54,8 @@ public class EventoDB {
         ArrayList<Evento> eventos = new ArrayList<Evento>();
         try {
             //System.out.println("entra al try al obtener?");
-            String ordenSQL = "SELECT * FROM evento WHERE correo like  ?"; //es el sql para obtenerlo
+            //String ordenSQL = "SELECT * FROM evento WHERE correo like  ?"; //es el sql para obtenerlo
+            String ordenSQL = "SELECT * FROM evento WHERE fecha AND hora like  ?, ? "; //es el sql para obtenerlo
             PreparedStatement sentencia = conexion.prepareStatement(ordenSQL); //crea una sentencia preparada de evento
 
              sentencia.setString(1, correo);

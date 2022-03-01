@@ -141,7 +141,7 @@
             android:text="REGISTRAR NUEVO USUARIO"
             android:textSize="20sp" />
     </androidx.cardview.widget.CardView>
-
+</RelativeLayout>
     <!--
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLoginGoogle"
@@ -187,4 +187,3 @@
     </androidx.cardview.widget.CardView>
     -->
 
-</RelativeLayout>

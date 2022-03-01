@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //variable
+    //variable constante
     public static final String ENVIAR_CORREO_LOGIN = "nombre";
 
 
@@ -41,8 +41,6 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     //Agregar cliente de inicio de sesión de Google
     private GoogleSignInClient mGoogleSignInClient;
-
-
 
 
     @Override
@@ -70,40 +68,41 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
     }
 
-    private boolean validateEmailAddress (EditText edt_email) {
-        String email = String.valueOf(edt_email.getText());
-        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+    //metodo para validar Email
+    private boolean validateEmailAddress(EditText edt_email) { //devuelve true o false si el campo edt_mail
+        String email = String.valueOf(edt_email.getText()); //lo guardamos en formato String
+        if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) { //si cumple las condicinones de correo devuelve true
 
             return true;
-        }
-        else {
+        } else { //si no las cumple, salta error en el edt_email y devuelve falso
 
-            edt_email.setError("Escribe el correo correctamente");
+            edt_email.setError("Escribe el correo correctamente"); //icono de error y mensaje
             edt_email.requestFocus();
             return false;
         }
     }
-    private boolean validatePassword (EditText edt_clave) {
-        String password = String.valueOf(edt_clave.getText());
-        if(!password.isEmpty()) {
 
-            return true;
-        }
-        else {
+    //metodo para validar Contraseña
+    private boolean validatePassword(EditText edt_clave) { //devuelve true o false si el campo edt_clave
+        String password = String.valueOf(edt_clave.getText()); //lo guardamos en formato String
+        if (!password.isEmpty()) { //si contraseña no esta vacio
 
-            edt_clave.setError("Escribe una contraseña");
+            return true; //devuelve true
+        } else { //si contraseña esta vacio
+
+            edt_clave.setError("Escribe una contraseña"); //icono de error y mensaje
             edt_clave.requestFocus();
-            return false;
+            return false; //devuelve false
         }
     }
 
+    //metodo al pulsar acceso
     public void loguearse(View view) {
 
-        validateEmailAddress(edt_email);
-        validatePassword(edt_clave);
+        validateEmailAddress(edt_email); //llamamos al metodo validacion de correo
+        validatePassword(edt_clave); //lamamos al metodo validacion de contraseña
         String email = String.valueOf(edt_email.getText());
         String password = String.valueOf(edt_clave.getText());
         /*if(email.equals("")){
@@ -115,9 +114,8 @@ public class LoginActivity extends AppCompatActivity {
             edt_email.requestFocus();
         }*/
         //else {
-        if (validateEmailAddress(edt_email) == true && validatePassword(edt_clave) == true) {
-            mAuth.signInWithEmailAndPassword(email, password)
-
+        if (validateEmailAddress(edt_email) == true && validatePassword(edt_clave) == true) { //si correo es true y falso es true == correcto entra
+            mAuth.signInWithEmailAndPassword(email, password) //inicia firebase
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -145,13 +143,11 @@ public class LoginActivity extends AppCompatActivity {
                     });
             //}
 
-        }
-        else {
-            Toast.makeText(LoginActivity.this, "fallo", Toast.LENGTH_LONG).show(); ;
-        }
-        }
+        } else { //si no cumple correo y contraseña da fallo
+            Toast.makeText(LoginActivity.this, "fallo", Toast.LENGTH_LONG).show();
 
-
+        }
+    }
 
 
     //botón registrar
@@ -183,12 +179,16 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+}
 
+    /*
     public void salir(View view) {
         FirebaseAuth.getInstance().signOut();
     }
 
-}
+     */
+
+
 
     //========================================================================================================firebase google
     /*

@@ -130,7 +130,8 @@ public class RegistrarActivity extends AppCompatActivity {
     //metodo para validar Nombre
     private boolean validateName(EditText edtNombre) { //devuelve true o false si el campo edtnombre
         nombre = String.valueOf(edtNombre.getText()); //lo guardamos en formato String
-        if (!nombre.isEmpty()) { //si nombre no esta vacio
+        if (!nombre.isEmpty()) { //si nombre
+            // no esta vacio
 
             return true; //devuelve true
         } else { //si nombre esta vacio

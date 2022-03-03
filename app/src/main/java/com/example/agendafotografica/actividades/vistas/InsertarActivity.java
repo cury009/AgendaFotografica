@@ -62,8 +62,24 @@ public class InsertarActivity extends AppCompatActivity {
 
 
         //atributos spinner
-        String [] horas = {"15:00", "17:00", "19:00"};
+        /*String [] horas = {"15:00", "17:00", "19:00"};
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, horas);
+        spinnerHora.setAdapter(adapter);
+
+         */
+
+        ArrayList<String> myList = new ArrayList<String>();
+
+       //if (horaOcupada == true) {
+            //no añade
+       // }
+       // else {
+            myList.add("15:00");
+        //}
+
+        myList.add("17:00");
+        myList.add("19:00");
+        ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, myList);
         spinnerHora.setAdapter(adapter);
 
         //atributos spinner

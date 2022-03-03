@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,9 @@ public class CalendarioActivity extends AppCompatActivity {
     private TextView dateValueTextView;
     private CardView seleccionarDia;
 
+    private CardView insertarbtn;
+    private CardView mostrarbtn;
+    private CardView seleccionarbtn;
     public static final String enviarFecha= "fecha";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +34,12 @@ public class CalendarioActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
+        insertarbtn = findViewById(R.id.cardinsertar);
+        mostrarbtn = findViewById(R.id.cardmostrar);
+        //seleccionarbtn = findViewById(R.id.card);
 
         datePicker = (DatePicker) findViewById(R.id.date_picker);
+
 
         dateValueTextView = (TextView) findViewById(R.id.date_selected_text_view);
         seleccionarDia = (CardView) findViewById(R.id.cardseleccionarDia);
@@ -40,14 +48,31 @@ public class CalendarioActivity extends AppCompatActivity {
         Calendar today = Calendar.getInstance();
         long now = today.getTimeInMillis();
         datePicker.setMinDate(now);
+        //dateValueTextView.setText(datePicker.se);
 
         
     }
 
+
     //método boton selecciona el dia
     public void seleccionar(View view) {
-        Toast.makeText(getApplicationContext(), "Selecciona el dia", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Selecciona el dia", Toast.LENGTH_SHORT).show();
+
         dateValueTextView.setText(datePicker.getDayOfMonth() + "/" +(datePicker.getMonth()+1)  + "/" + datePicker.getYear());
+
+        if (!(dateValueTextView == null)) { //si tiene texto entra
+            insertarbtn.setVisibility(View.VISIBLE);
+            mostrarbtn.setVisibility(View.VISIBLE);
+            /*seleccionarDia.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    insertarbtn.setEnabled(true);
+                }
+            });
+
+             */
+        }
+
 
 
     }
@@ -69,6 +94,7 @@ public class CalendarioActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Iniciar Pantalla Mostrar", Toast.LENGTH_SHORT).show();
         Intent mostrar = new Intent(this, MostrarActivity.class);
         startActivity(mostrar);
+
 
     }
 

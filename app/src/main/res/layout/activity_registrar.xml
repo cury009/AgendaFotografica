@@ -172,44 +172,7 @@
     </androidx.cardview.widget.CardView>
 
 
-    <!--
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardRol"
-        android:layout_width="345dp"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="410dp"
-        android:layout_marginBottom="16dp"
-        android:foreground="?selectableItemBackground"
 
-        app:cardCornerRadius="8dp"
-        app:cardElevation="6dp"
-        app:layout_columnWeight="1"
-        app:layout_rowWeight="1">
-
-        <TextView
-            android:layout_width="146dp"
-            android:layout_height="35dp"
-
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/baumans"
-            android:text="Rol"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/spinnerRol"
-            android:layout_width="189dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="150dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        />
-
-
-    </androidx.cardview.widget.CardView>
-    -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardTelefono"
@@ -336,3 +299,42 @@
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
+
+    <!--
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardRol"
+            android:layout_width="345dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="410dp"
+            android:layout_marginBottom="16dp"
+            android:foreground="?selectableItemBackground"
+
+            app:cardCornerRadius="8dp"
+            app:cardElevation="6dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <TextView
+                android:layout_width="146dp"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baumans"
+                android:text="Rol"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinnerRol"
+                android:layout_width="189dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="150dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            />
+
+
+        </androidx.cardview.widget.CardView>
+        -->

@@ -39,7 +39,6 @@ public class InsertarActivity extends AppCompatActivity {
     private TextView correo;
 
 
-
     private String correoUsuario;
     private String descripcionEvento;
     private String horaSeleccionada;
@@ -61,41 +60,7 @@ public class InsertarActivity extends AppCompatActivity {
         correo = (TextView) findViewById(R.id.correoDB);
 
 
-        //atributos spinner
-        /*String [] horas = {"15:00", "17:00", "19:00"};
-        ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, horas);
-        spinnerHora.setAdapter(adapter);
-
-         */
-
-        ArrayList<String> myList = new ArrayList<String>();
-
-       //if (horaOcupada == true) {
-            //no añade
-       // }
-       // else {
-            myList.add("15:00");
-        //}
-
-        myList.add("17:00");
-        myList.add("19:00");
-        ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, myList);
-        spinnerHora.setAdapter(adapter);
-
-        //atributos spinner
-        String [] descripcion = {"instagram", "festival", "boda", "comunion", "bautizo","pareja"};
-        ArrayAdapter <String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, descripcion);
-        spinnerDescripcion.setAdapter(adapter1);
-
-
-
-
-
-
         Intent intent = getIntent();
-
-
-
         //recojo objetos
         String p = intent.getStringExtra(CalendarioActivity.enviarFecha);
         String u = intent.getStringExtra(LoginActivity.ENVIAR_CORREO_LOGIN);
@@ -111,9 +76,39 @@ public class InsertarActivity extends AppCompatActivity {
         //correo.setText("correo: "+ correo_recibido);
 
 
+        //atributos spinner --borrar si sale bien
+        /*String [] horas = {"15:00", "17:00", "19:00"};
+        ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, horas);
+        spinnerHora.setAdapter(adapter);
+
+         */
+
+        //creo una un arraylist para añadir horas
+        //quiero hacer una consulta si esa hora del dia esta ocupada, en el caso que esté sin ocupar añadir al arraylist
+        ArrayList<String> myList = new ArrayList<String>();
+
+        //boolean horaOK = EventoController.saberSiHoraEstaOcupada(spinnerHora);
+        //if (horaOK) {
+        myList.add("15:00");
+        //}
+        //else {
+        //si esta ocupado no añadir
+        //}
+
+        myList.add("17:00");
+        myList.add("19:00");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, myList);
+        spinnerHora.setAdapter(adapter);
+
+        //atributos spinner
+        String[] descripcion = {"instagram", "festival", "boda", "comunion", "bautizo", "pareja"};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, descripcion);
+        spinnerDescripcion.setAdapter(adapter1);
+
+
         //cogemos el correo
         mAuth = FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() !=null) {
+        if (mAuth.getCurrentUser() != null) {
             mAuth.getCurrentUser().getEmail(); //el email
             correo.setText(mAuth.getCurrentUser().getEmail());
         }
@@ -130,29 +125,23 @@ public class InsertarActivity extends AppCompatActivity {
         //guardo los edt en strings y int para poderlo enviar a mysql.
         correoUsuario = correo.getText().toString();
         //descripcionEvento= String.valueOf(edt_descripcion.getText().toString());
-        
-        System.out.println("fecha incorporda:  " + fecha_recibida);
-        System.out.println("correo:  " + correoUsuario);
-        System.out.println("hora:  " + horaSeleccionada);
-        System.out.println("descripcion:  " + descripcionEvento);
+        boolean horaOK = EventoController.saberSiHoraEstaOcupado(fecha_recibida, horaSeleccionada);
+        if (horaOK) { //rellenar con el metodo de consulta hora ocupada
+            //EventoController.saberSiHoraEstaOcupado(fecha_recibida, horaSeleccionada);
+            Toast.makeText(this, "hora no ocupada", Toast.LENGTH_SHORT).show();
+            Evento e = new Evento(fecha_recibida, descripcionEvento, horaSeleccionada, correoUsuario); //Clase Usuario. Pasamos al constructor los datos del usuario para guardarlo.
+            boolean insercionOK = EventoController.insertarEvento(e);
+            if (insercionOK) { //si es true inserta
+                Toast.makeText(this, "evento creado correctamente en sql", Toast.LENGTH_SHORT).show();
+                Intent insertar = new Intent(this, CalendarioActivity.class);
+                startActivity(insertar);
+            } else { //si es false= esta ocupado
+                Toast.makeText(this, "No se pudo guardar la evento en sql", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "hora ocupada", Toast.LENGTH_SHORT).show();
 
-
-        Evento e = new Evento(fecha_recibida,descripcionEvento,horaSeleccionada,correoUsuario); //Clase Usuario. Pasamos al constructor los datos del usuario para guardarlo.
-        boolean insercionOK = EventoController.insertarEvento(e);
-        if(insercionOK)
-        {
-            Toast.makeText(this,"evento creado correctamente en sql", Toast.LENGTH_SHORT).show();
-            Intent insertar = new Intent(this,CalendarioActivity.class);
-            startActivity(insertar);
         }
-
-        else
-        {
-            Toast.makeText(this,"No se pudo guardar la evento en sql", Toast.LENGTH_SHORT).show();
-        }
-
-
-
     }
 
     //método botón volver

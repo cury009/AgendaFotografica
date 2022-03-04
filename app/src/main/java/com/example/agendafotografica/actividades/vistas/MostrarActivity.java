@@ -38,6 +38,7 @@ public class MostrarActivity extends AppCompatActivity {
 
         mAdapter = new ListaEventosAdapter(this); //objeto
         String micorreo = mAuth.getCurrentUser().getEmail();
+
         System.out.println("que tiene micorreo:   " + micorreo);
         ArrayList<Evento> eventos;
 

@@ -44,6 +44,48 @@ public class EventoDB {
             return false;
         }
     }
+    /*
+    public static ArrayList<Evento> obtenerEventosRol(String correo) {
+        Connection conexion = BaseDB.conectarConBaseDeDatos(); //crea una conexion con la base de datos
+        if(conexion == null)
+        {
+            return null;
+        }
+        ArrayList<Evento> eventos = new ArrayList<Evento>();
+        try {
+            //System.out.println("entra al try al obtener?");
+            String ordenSQL = "SELECT * FROM evento"; //es el sql para obtenerlo
+            //String ordenSQL = "SELECT * FROM evento WHERE fecha AND hora like  ?, ? "; //es el sql para obtenerlo
+            PreparedStatement sentencia = conexion.prepareStatement(ordenSQL); //crea una sentencia preparada de evento
+
+            sentencia.setString(1, correo);
+
+            //System.out.println("que devuelve ordenSQL?" + ordenSQL);
+            ResultSet resultado = sentencia.executeQuery(); //ejecuta la orden SQL
+            //System.out.println("que devuelve resultado" + resultado);
+            while(resultado.next()) //vas leyendo linea a linea del resultado
+            {
+                //System.out.println("entra al while?");
+                Integer idevento = resultado.getInt("idevento");
+                //System.out.println("idevento tiene?" + idevento);
+                String correo1 = resultado.getString("correo"); //obtiene las columnas de la tabla
+                String descripcion = resultado.getString("descripcion");
+                String hora = resultado.getString("hora");
+                String fecha = resultado.getString("fecha");
+                Evento elevento = new Evento(idevento,fecha,descripcion,hora,correo1);
+                eventos.add(elevento); //creas un objeto de tipo evento y la añades al arraylist
+            }
+            resultado.close(); //cerrar siempre
+            sentencia.close();
+            conexion.close();
+            return eventos;
+        } catch (SQLException e) {
+            Log.i("sql", "error sql");
+            return eventos; //cursos vacio
+        }
+    }
+    
+     */
 
     public static ArrayList<Evento> obtenerEventos(String correo) {
         Connection conexion = BaseDB.conectarConBaseDeDatos(); //crea una conexion con la base de datos
@@ -85,6 +127,56 @@ public class EventoDB {
         }
     }
 
+
+    public static boolean saberSiHoraEstaOcupada(String fecha, String hora) {
+
+        Connection conexion = BaseDB.conectarConBaseDeDatos();
+        if (conexion == null) {
+            return false;
+        }
+        //----------------------------
+        try {
+            //String ordensql = "SELECT fecha, hora WHERE evento fecha like ? AND hora like ?;";
+            String ordensql = "SELECT COUNT(*) FROM evento WHERE fecha like ? AND hora like ?;";
+            PreparedStatement pst = conexion.prepareStatement(ordensql); //prepareStatemente es preparar una sentencia
+            pst.setString(1, fecha);
+            pst.setString(2, hora);
+
+
+            /*
+            int filasAfectadas = pst.executeUpdate();
+            pst.close();
+            conexion.close();
+
+             */
+            int filasAfectadas = 0;
+            ResultSet rs = pst.executeQuery(); //resulset es resultado de la sentencia
+            /*while(rs.next()) {
+
+                filasAfectadas++;
+                System.out.println("filas afectadas dentro del while de la consulta:     "+ filasAfectadas);
+            }
+
+             */
+            rs.last(); //te vas al ultimo elemento
+            filasAfectadas = rs.getInt("COUNT(*)");
+            System.out.println("filas afectadas  con rs.getInt:     "+ filasAfectadas);
+            pst.close();
+            conexion.close();
+
+
+
+
+            if (filasAfectadas == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException exception) {
+            return false;
+        }
+
+    }
 
     public static boolean borrarEvento(Integer elevento, String correo) {
         Connection conexion = BaseDB.conectarConBaseDeDatos();

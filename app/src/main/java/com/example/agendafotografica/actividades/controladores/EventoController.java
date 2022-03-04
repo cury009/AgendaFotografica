@@ -5,6 +5,7 @@ import com.example.agendafotografica.actividades.tareas.TareaBorrarEvento;
 import com.example.agendafotografica.actividades.tareas.TareaInsertarEvento;
 import com.example.agendafotografica.actividades.tareas.TareaInsertarUsuario;
 import com.example.agendafotografica.actividades.tareas.TareaObtenerEventos;
+import com.example.agendafotografica.actividades.tareas.TareaSaberSiLaHoraEstaOcupada;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -21,12 +22,12 @@ public class EventoController {
         FutureTask t = new FutureTask(new TareaInsertarEvento(e));
         ExecutorService es = Executors.newSingleThreadExecutor();
         es.submit(t);
-        System.out.println("FutureTask: " + t); //Devuelve java.util.concurrent.FutureTask etc etc etc --> si lo devuelve
+
         boolean insercionOK = false;
-        System.out.println("insercion ok: " + insercionOK); //false
+
         try {
             insercionOK = (boolean) t.get(); //posible linea que falle
-            System.out.println("entra al try?: " + insercionOK); //deberia verse true --> entra como false
+
             es.shutdown();
             try {
                 if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {
@@ -72,6 +73,40 @@ public class EventoController {
             ex.printStackTrace();
         }
         return eventos; //devuelve eventos
+    }
+    //------------------------------------------------------------------------saber si la hora esta ocupado
+    public static boolean saberSiHoraEstaOcupado(String fecha, String hora) {
+        FutureTask t = new FutureTask(new TareaSaberSiLaHoraEstaOcupada(fecha, hora));
+        ExecutorService es = Executors.newSingleThreadExecutor();
+        es.submit(t);
+        System.out.println("FutureTask: " + t); //Devuelve java.util.concurrent.FutureTask etc etc etc --> si lo devuelve
+        boolean insercionOK = false;
+        System.out.println("insercion ok hora: " + insercionOK); //false
+        try {
+            insercionOK = (boolean) t.get(); //posible linea que falle
+            System.out.println("entra al try?: " + insercionOK); //deberia verse true --> entra como false
+            es.shutdown();
+            try {
+                if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {
+                    es.shutdownNow();
+                }
+            } catch (InterruptedException ex) {
+                es.shutdownNow();
+            }
+        } catch (ExecutionException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        finally {
+
+            System.out.println("devuelver insercionOK:   "+insercionOK); //muestra false pero deberia mostrar true
+            return insercionOK;
+
+
+        }
+
+
     }
     //---------------------------------------------------------------------------borrar Evento
 

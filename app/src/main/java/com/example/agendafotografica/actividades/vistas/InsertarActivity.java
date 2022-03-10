@@ -89,15 +89,19 @@ public class InsertarActivity extends AppCompatActivity {
 
         //boolean horaOK = EventoController.saberSiHoraEstaOcupada(spinnerHora);
         //if (horaOK) {
-        myList.add("15:00");
+        
         //}
         //else {
         //si esta ocupado no añadir
         //}
-
+        
+        /*
+        myList.add("15:00");
         myList.add("17:00");
         myList.add("19:00");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, myList);
+        */
+
         spinnerHora.setAdapter(adapter);
 
         //atributos spinner
@@ -113,6 +117,21 @@ public class InsertarActivity extends AppCompatActivity {
             correo.setText(mAuth.getCurrentUser().getEmail());
         }
 
+        ArrayList<String> listaHoras = new ArrayList<String>();
+        listaHoras.add("15:00");
+        listaHoras.add("17:00");
+        listaHoras.add("19:00");
+        foreach(String hora in listaHoras){
+            boolean horaOK = EventoController.saberSiHoraEstaOcupado(fecha_recibida, hora);
+            if(horaOK){
+                myList.add(hora);
+            }
+        }
+        
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, myList);
+
+
     }
 
 
@@ -125,7 +144,8 @@ public class InsertarActivity extends AppCompatActivity {
         //guardo los edt en strings y int para poderlo enviar a mysql.
         correoUsuario = correo.getText().toString();
         //descripcionEvento= String.valueOf(edt_descripcion.getText().toString());
-        boolean horaOK = EventoController.saberSiHoraEstaOcupado(fecha_recibida, horaSeleccionada);
+        
+        
         if (horaOK) { //rellenar con el metodo de consulta hora ocupada
             //EventoController.saberSiHoraEstaOcupado(fecha_recibida, horaSeleccionada);
             Toast.makeText(this, "hora no ocupada", Toast.LENGTH_SHORT).show();
